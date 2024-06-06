@@ -59,7 +59,7 @@ client.on('interactionCreate', async interaction => {
               const reponseB = await axios.get(api_url_joueurB);
               for (const element of reponseB.data) {
                 if(element["queueType"] === "RANKED_SOLO_5x5"){
-                  if(element["tier"] === "MASTER" || element["tier"] === "MASTER" || element["tier"] === "MASTER"){
+                  if(element["tier"] === "MASTER" || element["tier"] === "GRANDMASTER" || element["tier"] === "CHALLENGER"){
                     nblpBlue += 2800 + element["leaguePoints"];
                   }
                   else{
