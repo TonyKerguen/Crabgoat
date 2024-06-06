@@ -1,6 +1,7 @@
 import { Client, IntentsBitField, SlashCommandBuilder, REST, Routes } from 'discord.js';
 const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildMembers] });
-import config from './config.json' assert { type: 'json' };
+// import config from './config.json' assert { type: 'json' };
+const config = require('./config.json');
 import axios from 'axios';
 
 const nblpside = new SlashCommandBuilder()
@@ -35,7 +36,6 @@ client.on('ready', () => {
 
 client.on('interactionCreate', async interaction => {
   if (interaction.user.bot) return;
-
   if (interaction.commandName === 'nblpside') {
     const pseudosansespace = interaction.options.getString('pseudodujoueur').replace(" ", "%20");
     const tagdujoueur = interaction.options.getString('tagdujoueur');
