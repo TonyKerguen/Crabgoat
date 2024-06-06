@@ -101,8 +101,36 @@ client.on('interactionCreate', async interaction => {
               const reponseR = await axios.get(api_url_joueurR);
               for (const element of reponseR.data) {
                 if(element["queueType"] === "RANKED_SOLO_5x5"){
-                  console.log(participants[i]["riotId"]+" lp : "+element["leaguePoints"]);
-                  nblpRed += element["leaguePoints"];
+                  if(element["tier"] === "MASTER" || element["tier"] === "GRANDMASTER" || element["tier"] === "CHALLENGER"){
+                    nblpRed += 2800 + element["leaguePoints"];
+                  }
+                  else{
+                    if(element["rank"] === "III"){nblpRed += 100}
+                    if(element["rank"] === "II"){nblpRed += 200}
+                    if(element["rank"] === "I"){nblpRed += 300}
+                    if(element["tier"] === "DIAMOUND"){
+                      nblpRed += 2400 +element["leaguePoints"];
+                    }
+                    if(element["tier"] === "EMERALD"){
+                      nblpRed += 2000 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "PLATINUM"){
+                      nblpRed += 1600 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "GOLD"){
+                      nblpRed += 1200 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "SILVER"){
+                      nblpRed += 800 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "BRONZE"){
+                      nblpRed += 400 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "IRON"){
+                      nblpRed += element["leaguePoints"];
+                    }
+                  }
+                  console.log(participants[i]["riotId"] + " rank : "+ element["tier"] + " " + element["rank"] + " nblp : " + element["leaguePoints"]);
                 }
               }
             }
