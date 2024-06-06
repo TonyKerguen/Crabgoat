@@ -49,9 +49,8 @@ client.on('interactionCreate', async interaction => {
           const reponseG = await axios.get(api_url_game);
           const participants = reponseG.data["participants"];
           if (reponseG.data) {
-            // console.log(participants);
+            console.log(participants);
             let nblpBlue = 0;
-            let nblpRed = 0;
             console.log("");
             console.log("Blue side player:");
             for (let i = 0; i < 5; i++) {
@@ -60,11 +59,40 @@ client.on('interactionCreate', async interaction => {
               const reponseB = await axios.get(api_url_joueurB);
               for (const element of reponseB.data) {
                 if(element["queueType"] === "RANKED_SOLO_5x5"){
-                  console.log(participants[i]["riotId"]+" lp : "+element["leaguePoints"]);
-                  nblpBlue += element["leaguePoints"];
+                  if(element["tier"] === "MASTER" || element["tier"] === "MASTER" || element["tier"] === "MASTER"){
+                    nblpBlue += 2800 + element["leaguePoints"];
+                  }
+                  else{
+                    if(element["rank"] === "III"){nblpBlue += 100}
+                    if(element["rank"] === "II"){nblpBlue += 200}
+                    if(element["rank"] === "I"){nblpBlue += 300}
+                    if(element["tier"] === "DIAMOUND"){
+                      nblpBlue += 2400 +element["leaguePoints"];
+                    }
+                    if(element["tier"] === "EMERALD"){
+                      nblpBlue += 2000 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "PLATINUM"){
+                      nblpBlue += 1600 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "GOLD"){
+                      nblpBlue += 1200 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "SILVER"){
+                      nblpBlue += 800 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "BRONZE"){
+                      nblpBlue += 400 + element["leaguePoints"];
+                    }
+                    if(element["tier"] === "IRON"){
+                      nblpBlue += element["leaguePoints"];
+                    }
+                  }
+                  console.log(participants[i]["riotId"] + " rank : "+ element["tier"] + " " + element["rank"] + " nblp : " + element["leaguePoints"]);
                 }
               }
             }
+            let nblpRed = 0;
             console.log("");
             console.log("Red side player:");
             for (let i = 5; i < 10; i++) {
