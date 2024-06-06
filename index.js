@@ -66,7 +66,7 @@ client.on('interactionCreate', async interaction => {
                     if(element["rank"] === "III"){nblpBlue += 100}
                     if(element["rank"] === "II"){nblpBlue += 200}
                     if(element["rank"] === "I"){nblpBlue += 300}
-                    if(element["tier"] === "DIAMOUND"){
+                    if(element["tier"] === "DIAMOND"){
                       nblpBlue += 2400 +element["leaguePoints"];
                     }
                     if(element["tier"] === "EMERALD"){
@@ -108,7 +108,7 @@ client.on('interactionCreate', async interaction => {
                     if(element["rank"] === "III"){nblpRed += 100}
                     if(element["rank"] === "II"){nblpRed += 200}
                     if(element["rank"] === "I"){nblpRed += 300}
-                    if(element["tier"] === "DIAMOUND"){
+                    if(element["tier"] === "DIAMOND"){
                       nblpRed += 2400 +element["leaguePoints"];
                     }
                     if(element["tier"] === "EMERALD"){
