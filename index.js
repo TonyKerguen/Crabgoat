@@ -1,7 +1,6 @@
 import { Client, IntentsBitField, SlashCommandBuilder, REST, Routes } from 'discord.js';
 const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildMembers] });
-// import config from './config.json' assert { type: 'json' };
-const config = require('./config.json');
+import config from './config.json' assert { type: 'json' };
 import axios from 'axios';
 
 const nblpside = new SlashCommandBuilder()
