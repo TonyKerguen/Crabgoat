@@ -2,6 +2,7 @@ import { Client, IntentsBitField, SlashCommandBuilder, REST, Routes } from 'disc
 const client = new Client({ intents: [IntentsBitField.Flags.Guilds, IntentsBitField.Flags.MessageContent, IntentsBitField.Flags.GuildMembers] });
 import config from './config.json' assert { type: 'json' };
 import axios from 'axios';
+import cheerio from 'cheerio';
 
 
 const nblpside = new SlashCommandBuilder()
