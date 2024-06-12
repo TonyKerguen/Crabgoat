@@ -118,8 +118,24 @@ client.on('interactionCreate', async interaction => {
       const urlstatschamp = `https://www.op.gg/champion/${formattedChampionName}/statistics`;
       const { data } = await axios.get(urlstatschamp);
 
-      console.log(data)
-      interaction.reply(data);
+      // Charger la page HTML dans cheerio pour le scraping
+      const $ = cheerio.load(data);
+
+      // Sélectionner les éléments contenant les informations de build
+      const builds = [];
+      $('.champion-overview__table--build td').each((i, element) => {
+          const buildItems = $(element).find('.champion-stats__list li img').map((i, el) => {
+              return $(el).attr('alt'); // Récupère le nom des objets
+          }).get();
+
+          if (buildItems.length > 0) {
+              builds.push(buildItems);
+          }
+      });
+
+      // return builds.length > 0 ? builds : null;
+      console.log(builds)
+      interaction.reply(builds);
       console.log(formattedChampionName)
       interaction.reply(formattedChampionName);
     }
