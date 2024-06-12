@@ -18,8 +18,8 @@ const nblpside = new SlashCommandBuilder()
             .setRequired(true)
     )
 
-const buildChamp = new SlashCommandBuilder()
-    .setName('buildChamp')
+const buildchamp = new SlashCommandBuilder()
+    .setName('buildchamp')
     .setDescription('Meilleur build pour ce champion')
     .addStringOption(nomChamp =>
         nomChamp.setName('nomchamp')
@@ -27,7 +27,7 @@ const buildChamp = new SlashCommandBuilder()
             .setRequired(true)
     )
 
-const commands = [nblpside.toJSON(), buildChamp.toJSON()];
+const commands = [nblpside.toJSON(), buildchamp.toJSON()];
 
 const rest = new REST({ version: '10' }).setToken(config.token);
 
@@ -113,7 +113,7 @@ client.on('interactionCreate', async interaction => {
             interaction.reply('Une erreur s\'est produite lors de la récupération des données du joueur.');
         }
     }
-    if(interaction.commandName === 'buildChamp'){
+    if(interaction.commandName === 'buildchamp'){
       const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'","").split(' ')[0]
       console.log(formattedChampionName)
     }
