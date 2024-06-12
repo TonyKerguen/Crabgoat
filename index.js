@@ -107,5 +107,6 @@ client.on('interactionCreate', async interaction => {
         interaction.reply('Aucune donnée trouvée pour ce joueur.');
     }
 });
+console.log("YOLO");
 
 client.login(config.token);
