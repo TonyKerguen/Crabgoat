@@ -137,8 +137,6 @@ client.on('interactionCreate', async interaction => {
       // return builds.length > 0 ? builds : null;
       console.log(builds)
       interaction.reply(builds);
-      console.log(formattedChampionName)
-      interaction.reply(formattedChampionName);
     }
 });
 console.log("YOLO");
