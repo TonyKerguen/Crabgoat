@@ -115,6 +115,11 @@ client.on('interactionCreate', async interaction => {
     }
     if(interaction.commandName === 'buildchamp'){
       const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'","").split(' ')[0]
+      const urlstatschamp = `https://www.op.gg/champion/${formattedChampionName}/statistics`;
+      const { data } = await axios.get(urlstatschamp);
+
+      console.log(data)
+      interaction.reply(data);
       console.log(formattedChampionName)
       interaction.reply(formattedChampionName);
     }
