@@ -116,6 +116,7 @@ client.on('interactionCreate', async interaction => {
     if(interaction.commandName === 'buildchamp'){
       const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'","").split(' ')[0]
       console.log(formattedChampionName)
+      interaction.reply(formattedChampionName);
     }
 });
 console.log("YOLO");
