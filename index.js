@@ -118,5 +118,6 @@ client.on('interactionCreate', async interaction => {
       console.log(formattedChampionName)
     }
 });
+console.log("YOLO");
 
 client.login(config.token);
