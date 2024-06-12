@@ -114,7 +114,7 @@ client.on('interactionCreate', async interaction => {
         }
     }
     if(interaction.commandName === 'buildChamp'){
-      const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'","")[0]
+      const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'","").split(' ')[0]
       console.log(formattedChampionName)
     }
 });
