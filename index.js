@@ -142,33 +142,35 @@ client.on('interactionCreate', async interaction => {
       const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'", "").split(' ')[0];
       const urlstatschamp = `https://www.op.gg/champion/${formattedChampionName}/statistics`;
       const { data } = await axios.get(urlstatschamp);
+      console.log(data)
   
       // Charger la page HTML dans cheerio pour le scraping
-      const $ = cheerio.load(data);
+    //   const $ = cheerio.load(data);
   
       // Affiche le HTML récupéré pour vérifier
-      console.log($.html());
+    //   console.log($.html());
   
       // Sélectionner les éléments contenant les informations de build
-      const builds = [];
-      $('.champion-overview__table--build td').each((i, element) => {
-          // Affiche le HTML de chaque cellule pour vérification
-          console.log($(element).html());
+    //   const builds = [];
+    //   $('.champion-overview__table--build td').each((i, element) => {
+    //       // Affiche le HTML de chaque cellule pour vérification
+    //       console.log($(element).html());
   
-          const buildItems = $(element).find('.champion-stats__list li img').map((i, el) => {
-              const itemName = $(el).attr('alt');
-              console.log(itemName); // Affiche le nom de chaque objet trouvé
-              return itemName;
-          }).get();
+    //       const buildItems = $(element).find('.champion-stats__list li img').map((i, el) => {
+    //           const itemName = $(el).attr('alt');
+    //           console.log(itemName); // Affiche le nom de chaque objet trouvé
+    //           return itemName;
+    //       }).get();
   
-          if (buildItems.length > 0) {
-              builds.push(buildItems);
-          }
-      });
+    //       if (buildItems.length > 0) {
+    //           builds.push(buildItems);
+    //       }
+    //   });
   
       // Afficher les builds trouvés
-      console.log(builds);
-      interaction.reply("builds: " + (builds.length > 0 ? builds.map(build => build.join(', ')).join(' | ') : 'Aucun build trouvé'));
+    //   console.log(builds);
+    //   interaction.reply("builds: " + (builds.length > 0 ? builds.map(build => build.join(', ')).join(' | ') : 'Aucun build trouvé'));
+    interaction.reply("z")
   }
 });
 console.log("YOLO");
