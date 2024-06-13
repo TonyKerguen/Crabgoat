@@ -122,7 +122,7 @@ client.on('interactionCreate', async interaction => {
         // Charger la page HTML dans cheerio pour le scraping
         const $ = cheerio.load(data);
         // console.log($('div.item_icon.item_icon--normal.css-ehxviv.e1h3twa82').text())
-        const buildImages = $('.build-item .image img'); // Ajuste le sélecteur en fonction de la structure HTML exacte
+        const buildImages = $('div.item_icon img.bg-image'); // Ajuste le sélecteur en fonction de la structure HTML exacte
         console.log(buildImages)
 
         buildImages.each((index, element) => {
