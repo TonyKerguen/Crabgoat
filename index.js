@@ -123,14 +123,15 @@ client.on('interactionCreate', async interaction => {
         const $ = cheerio.load(data);
         // console.log($('div.item_icon.item_icon--normal.css-ehxviv.e1h3twa82').text())
         const buildImages = $('.build-item .image img'); // Ajuste le sélecteur en fonction de la structure HTML exacte
+        console.log(buildImages)
 
         buildImages.each((index, element) => {
             const altText = $(element).attr('alt');
             console.log(`Build ${index + 1}: ${altText}`);
         });
 
-    interaction.reply("z")
-  }
+        interaction.reply("z")
+    }
 });
 console.log("YOLO");
 
