@@ -142,11 +142,11 @@ client.on('interactionCreate', async interaction => {
       const formattedChampionName = interaction.options.getString('nomchamp').toLowerCase().replace("'", "").split(' ')[0];
       const urlstatschamp = `https://www.op.gg/champion/${formattedChampionName}/statistics`;
       const { data } = await axios.get(urlstatschamp);
-      console.log(data)
+    //   console.log(data)
   
       // Charger la page HTML dans cheerio pour le scraping
-    //   const $ = cheerio.load(data);
-  
+      const $ = cheerio.load(data);
+        console.log($('div.item_icon.item_icon--normal.css-ehxviv.e1h3twa82'))
       // Affiche le HTML récupéré pour vérifier
     //   console.log($.html());
   
